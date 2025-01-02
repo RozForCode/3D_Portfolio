@@ -9,7 +9,11 @@ import { useFrame } from "@react-three/fiber";
 const Wizard = React.memo(function Wizard(props) {
   // Use React.memo for performance optimization
   const { nodes, materials } = useGLTF("/models/wizard-transformed.glb");
+  const { nodes1, materials1 } = useGLTF("/models/model.glb");
+  if (!nodes1 || !materials1) console.error("Error: nodes1 or materials1 is undefined.");
 
+  console.log("errors debug")
+  console.log(nodes1, materials1);
   const modelRef = useRef();
 
   useFrame((state) => {
@@ -26,15 +30,24 @@ const Wizard = React.memo(function Wizard(props) {
       scale={[0.06, 0.06, 0.06]}
       rotation={[0.25, 0, 0]}
     >
+
+
+
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Evil_Hathattty_mesh_Evil_HatBLN_Hat_0.geometry}
-        material={materials.Evil_HatBLN_Hat}
+        geometry={nodes1[
+          '0'
+        ].geometry}
+        material={materials1["0"].material}
         position={[-1.057, 0, 0]}
         rotation={[0, 0.224, 0]}
         scale={0.832}
       />
+
+
+
+
       <mesh
         castShadow
         receiveShadow
@@ -211,4 +224,6 @@ const Wizard = React.memo(function Wizard(props) {
 });
 
 export default Wizard;
+
+useGLTF.preload("/models/model.glb");
 useGLTF.preload("/models/wizard-transformed.glb");
