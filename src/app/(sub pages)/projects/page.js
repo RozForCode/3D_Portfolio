@@ -11,9 +11,7 @@ const Staff = dynamic(() => import("@/components/models/Staff"), {
   ssr: false,
 });
 
-export const metadata = {
-  title: "Projects",
-};
+
 
 export default function Home() {
   return (

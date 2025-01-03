@@ -1,4 +1,6 @@
 import { Inter } from "next/font/google";
+import { metadata as projectsMetadata } from "./(sub pages)/projects/metadata";
+import { metadata as aboutMetadata } from "./(sub pages)/about/metadata";
 import "./globals.css";
 import clsx from "clsx";
 import FireFliesBackground from "@/components/FireFliesBackground";
@@ -18,7 +20,9 @@ export const metadata = {
   },
   description:
     "A unique creative portfolio designed by CodeBucks with cutting-edge technologies like Next.js, Tailwind CSS, Three.js, and Framer Motion. Experience the art of modern web development firsthand. Checkout CodeBucks on youtube.",
-};
+  ...projectsMetadata,
+  ...aboutMetadata,
+  };
 
 export default function RootLayout({ children }) {
   return (

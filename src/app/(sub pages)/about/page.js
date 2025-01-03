@@ -9,9 +9,7 @@ const HatModel = dynamic(() => import("@/components/models/HatModel"), {
   ssr: false,
 });
 
-export const metadata = {
-  title: "About",
-};
+
 
 export default function Home() {
   return (
