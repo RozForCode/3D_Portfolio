@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import bg from "../../public/background/background_image2.webp";
 import RenderModel from "@/components/RenderModel";
